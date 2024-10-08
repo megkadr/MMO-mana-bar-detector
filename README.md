@@ -1,3 +1,7 @@
+Here's the updated guide with a new section for debugging the mana bar image, including instructions for measuring the size of the mana bar using PowerToys:
+
+---
+
 # Auto Mana Skill Activator
 
 A Python script that automatically activates a specified hotkey when your in-game mana bar falls below 70%. Perfect for MMORPGs where mana management is crucial.
@@ -14,7 +18,7 @@ Before running this script, you need to:
 
 1. **Install required libraries**
    Open Command Prompt (CMD) and run:
-   ```
+   ```bash
    pip install opencv-python numpy pyautogui tkinter
    ```
 
@@ -26,8 +30,8 @@ Before running this script, you need to:
 ### Mana Bar Measurement
 You need to adjust the mana bar coordinates for your screen resolution:
 
-1. Take a screenshot of your game
-2. Open the screenshot in an image editor (like Paint)
+1. Take a screenshot of your game.
+2. Open the screenshot in an image editor (like Paint).
 3. Move your cursor to find these coordinates:
    - Left edge of mana bar (x1)
    - Right edge of mana bar (x2)
@@ -44,20 +48,36 @@ You need to adjust the mana bar coordinates for your screen resolution:
    ```
 
 ### Optional Settings
-- `MANA_THRESHOLD = 0.7` - Change `0.7` to adjust at what mana percentage the script activates
-- `MANA_HOTKEY = '-'` - Change `'-'` to your desired hotkey
-- `CHECK_INTERVAL = 1.0` - Change `1.0` to adjust how often the script checks mana (in seconds)
+- `MANA_THRESHOLD = 0.7` - Change `0.7` to adjust at what mana percentage the script activates.
+- `MANA_HOTKEY = '-'` - Change `'-'` to your desired hotkey.
+- `CHECK_INTERVAL = 1.0` - Change `1.0` to adjust how often the script checks mana (in seconds).
+
+## Debugging Your Mana Bar Image
+
+To debug the mana bar detection, you can capture and analyze the region of your screen where the mana bar is located. Follow these steps:
+
+1. **Capture the Mana Bar Region**
+   - The script saves debug images of the mana bar region and blue mask if `DEBUG_MODE` is set to `True`. 
+   - After running the script, check the specified debug folder (`SAVE_DIR`) for images named `mana_bar_region` and `blue_mask`.
+
+2. **Measure Size of Mana Bar**
+   - You can use PowerToys' **Image Resizer** tool or the **Screen Ruler** utility to measure the width and height of your mana bar in pixels.
+   - Open PowerToys, navigate to the **Image Resizer** or **Screen Ruler**, and measure the area of the mana bar on your screenshot.
+
+### Script Parts Related to Debugging
+- The function `check_mana_level` extracts the mana bar region and saves it using `save_debug_image`.
+- The debug images help visualize the detection process, showing the area being monitored and the mask used to find blue pixels.
 
 ## Running the Script
 
 1. **Method 1: Direct Run**
-   - Double click the script file (`.pyw`)
+   - Double click the script file (`.pyw`).
 
 2. **Method 2: Create a Shortcut (Recommended)**
-   - Right-click the script file
-   - Select "Create shortcut"
-   - Right-click the shortcut and select "Properties"
-   - In the "Shortcut key" field, set a keyboard shortcut (e.g., Ctrl+Alt+M)
+   - Right-click the script file.
+   - Select "Create shortcut."
+   - Right-click the shortcut and select "Properties."
+   - In the "Shortcut key" field, set a keyboard shortcut (e.g., Ctrl+Alt+M).
 
 When running, a small window will appear with:
 - Current mana level
@@ -69,13 +89,17 @@ Click the "Stop" button in the script's window.
 ## Troubleshooting
 
 1. **Script not detecting mana correctly**
-   - Verify your mana bar coordinates
-   - Try adjusting the blue color range in the script
-   - Make sure your game's mana bar is visible and not covered
+   - Verify your mana bar coordinates.
+   - Try adjusting the blue color range in the script.
+   - Make sure your game's mana bar is visible and not covered.
 
 2. **Script not starting**
-   - Ensure all required libraries are installed
-   - Try running from Command Prompt to see error messages
+   - Ensure all required libraries are installed.
+   - Try running from Command Prompt to see error messages.
 
 ## Disclaimer
 Use of this script should comply with your game's terms of service. Use at your own risk.
+
+---
+
+This update provides clear guidance for users on how to debug the mana bar detection and measure its dimensions effectively using PowerToys. Let me know if you'd like any further modifications!
