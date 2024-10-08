@@ -1,0 +1,1 @@
+# MMO-mana-bar-detector
