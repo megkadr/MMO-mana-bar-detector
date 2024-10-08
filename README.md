@@ -1,7 +1,3 @@
-Here's the updated guide with a new section for debugging the mana bar image, including instructions for measuring the size of the mana bar using PowerToys:
-
----
-
 # Auto Mana Skill Activator
 
 A Python script that automatically activates a specified hotkey when your in-game mana bar falls below 70%. Perfect for MMORPGs where mana management is crucial.
@@ -101,5 +97,3 @@ Click the "Stop" button in the script's window.
 Use of this script should comply with your game's terms of service. Use at your own risk.
 
 ---
-
-This update provides clear guidance for users on how to debug the mana bar detection and measure its dimensions effectively using PowerToys. Let me know if you'd like any further modifications!
